@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load hitcount_tags %}
+{% block content %}
+<head>
+<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+<script src="https://kit.fontawesome.com/beca862879.js" crossorigin="anonymous"></script>
+
+    <style>
+        
+        .article{
+            padding:10px;
+            border: 1px solid rgba(0,0,0,0.1)
+        }
+        i.fas {
+            font-size: 3em;
+        }
+        .cat {
+            width: 150px;
+            display: inline-block;
+        }
+        .cat a{
+            width: 100%;
+            display: inline-block;
+        }
+        .TenYearCHD:before {
+            content: "\f21e";
+        }
+        .reminder:before{
+            content: "\f017";
+        }
+        .Activities:before{
+            content: "\f70c";
+        }
+        .Medication:before{
+            content: "\f46b";
+        }
+        .MedicalDignosis:before{
+            content: "\f0f0";
+        }
+        .Obesity:before{
+            content: "\f496";
+        }
+        .diabetes:before{
+            content: "\f48e";
+        }
+        .GeneralContent:before {
+            content: "\f481"
+        }
+    </style>
+</head>
+<body>
+{% for article in articles %}
+    <div class="article card horizontal">
+        <div class="card-stacked">
+            <div class="card-content">
+                <h1>
+                    {% block title %}
+                        <a href="{% url 'single_article' slug=article.slug %}">{{ article.title }}</a>  
+                    {% endblock %}
+                </h1>
+                {% block content1 %}
+                    <p>
+                        {{ article.body }}
+                    </p>
+                {% endblock %}
+            </div>
+            <div class="card-action">
+                {% for tag in article.tags.all %}
+                <div class="cat">
+                    <i class="fas {{ tag }}"></i>
+                    <a href="#"> #{{ tag }} </a>
+                </div>    
+                {% endfor %} 
+            </div>  
+            Views: {% get_hit_count for article %}
+        </div> 
+    </div>
+       
+{% endfor %}
+</body>
+{% endblock %}

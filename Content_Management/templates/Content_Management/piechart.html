@@ -1,0 +1,11 @@
+{% load_chart charttype chartdata "piechart_container" extra %}
+{% load static %}
+{% load nvd3_tags %}
+<head>
+    {% include_chart_jscss %}
+    {% load_chart charttype chartdata chartcontainer extra %}
+</head>
+<body>
+    <h1> Risk vs Not at Risk vs Diabetes</h1>
+    {% include_container chartcontainer 600 800 %}
+</body>

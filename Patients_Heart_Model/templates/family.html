@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{# Don't forget that one ! #}
+{% load static %}
+
+{% block content %}
+<style>
+body .select2-container{
+  display:inline !important;
+}
+.row {
+  display: flex;
+  flew-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin:100px;
+}
+</style>
+  <div class="container"><h1>Add Family</h1></div>
+  <div class="row">
+    <div class="col s12">
+      <form action="" method="post">
+          {% csrf_token %}
+          {{ form }}
+          <button type="submit" class="btn waves-effect waves-light">Submit</button>
+      </form>
+    </div>
+  </div>
+
+
+{{ form.media }}
+{% endblock %}
+
+
+

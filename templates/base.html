@@ -1,0 +1,60 @@
+<html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://kit.fontawesome.com/beca862879.js" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script> 
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+<body >
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      
+      <ul class="center hide-on-med-and-down ">
+        <li><a href="/Content_Management">Home</li>
+        <li><a href="{% url 'CM:myprofile' %}" >My Profile</li>
+        <li><a href="{% url "CM:appointmentcalendar" %}">Appointments</li>
+        <li><a href="{% url "CM:medicationcalendar" %}">Medications</a></li>
+        <li><a href="{% url "Diet:dailymeal" %}">Daily Diet</a></li>
+        <li><a href="{% url 'CM:submit_report' %}">Submit Report</a></li>
+        <li><a href="{% url 'CM:FamilyHealth' %}">Family Health</a></li>  
+      </ul>
+    </div>
+  </nav>  
+
+  <ul class="sidenav" id="mobile-nav">
+        <li><a href="/Content_Management">Home</li>
+        <li><a href="{% url 'CM:myprofile' %}" >My Profile</li>
+        <li><a href="{% url "CM:appointmentcalendar" %}">Appointments</li>
+        <li><a href="{% url "CM:medicationcalendar" %}">Medications</a></li>
+        <li><a href="{% url "Diet:dailymeal" %}">Daily Diet</a></li>
+        <li><a href="{% url 'CM:submit_report' %}">Submit Report</a></li>
+        <li><a href="{% url 'CM:FamilyHealth' %}">Family Health</a></li> 
+  </ul>
+<script>
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+    
+  });
+        
+
+
+</script>
+
+
+<div class = container>
+
+
+
+ {% block content %}
+ {% endblock %}
+</div>
+   
+</body>
+</html> 

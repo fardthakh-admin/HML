@@ -1,0 +1,27 @@
+{% extends "admin/change_list.html" %}
+
+{% block content %}
+{% load nvd3_tags %}
+<head>
+    {% comment %} {% load_chart charttype chartdata "piechart_container" extra %} {% endcomment %}
+    {% include_chart_jscss %}
+    {% load_chart charttype chartdata chartcontainer extra %}
+</head>
+    <h1> Pie chart of patients</h1>
+    <body>
+    {% include_container chartcontainer 400 400 %}
+    </body>
+    <div>
+        <form action="/Patients_Records/heart" method="POST">
+            {% csrf_token %}
+                <button type="submit">Run Model</button>
+        </form>
+    </div>
+{{ block.super }}
+{% endblock %}  
+
+
+
+
+
+

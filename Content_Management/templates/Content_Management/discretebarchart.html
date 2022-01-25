@@ -1,0 +1,13 @@
+
+
+{% load static %}
+
+{% load nvd3_tags %}
+<head>
+     {% include_chart_jscss %}
+    {% load_chart charttype chartdata "discretebarchart_container" %}
+</head>
+<body>
+    <h1>Bar chart of articles views </h1>
+    {% include_container "discretebarchart_container" 600 800 %}
+</body>

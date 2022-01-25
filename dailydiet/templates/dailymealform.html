@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <form method="POST" > 
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn waves-effect waves-light" >Submit</button>
+  </form>
+  <p><a href="{% url "CM:content for current user" %}">Return to home</a></p>
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems);
+  });
+</script>
+{% endblock %}
